@@ -1,0 +1,19 @@
+Design Name: vortex_top
+Run Directory: /openlane/designs/vortex_top/runs/RUN_2026.07.13_07.03.48
+----------------------------------------
+
+Magic DRC Summary:
+Source: /openlane/designs/vortex_top/runs/RUN_2026.07.13_07.03.48/reports/signoff/drc.rpt
+Total Magic DRC violations is 0
+----------------------------------------
+
+LVS Summary:
+Source: /openlane/designs/vortex_top/runs/RUN_2026.07.13_07.03.48/logs/signoff/39-vortex_top.lef.lvs.log
+Number of nets: 308                        |Number of nets: 308                        
+Design is LVS clean.
+----------------------------------------
+
+Antenna Summary:
+Source: /openlane/designs/vortex_top/runs/RUN_2026.07.13_07.03.48/logs/signoff/41-arc.log
+Pin violations: 0
+Net violations: 0

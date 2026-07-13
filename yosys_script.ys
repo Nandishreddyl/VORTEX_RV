@@ -1,0 +1,21 @@
+design -reset
+
+read_verilog RTL/IF/*.v
+read_verilog RTL/ID/*.v
+read_verilog RTL/EX/*.v
+read_verilog RTL/MEM/*.v
+read_verilog RTL/WB/*.v
+read_verilog RTL/Pipeline_Registers/*.v
+read_verilog RTL/Hazard_Unit/*.v
+read_verilog RTL/Top/*.v
+
+hierarchy -check -top vortex_top
+
+proc
+opt
+fsm
+memory
+techmap
+opt
+
+stat

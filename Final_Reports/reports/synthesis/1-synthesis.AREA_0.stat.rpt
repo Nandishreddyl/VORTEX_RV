@@ -1,0 +1,32 @@
+
+80. Printing statistics.
+
+=== vortex_top ===
+
+   Number of wires:                 79
+   Number of wire bits:            172
+   Number of public wires:           5
+   Number of public wire bits:      98
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                170
+     sky130_fd_sc_hd__a2111o_2       1
+     sky130_fd_sc_hd__and2_2         1
+     sky130_fd_sc_hd__buf_1         52
+     sky130_fd_sc_hd__conb_1        66
+     sky130_fd_sc_hd__dfrtp_2       30
+     sky130_fd_sc_hd__inv_2          2
+     sky130_fd_sc_hd__mux2_2         1
+     sky130_fd_sc_hd__nand2_2        1
+     sky130_fd_sc_hd__nor2_2         1
+     sky130_fd_sc_hd__nor3_2         1
+     sky130_fd_sc_hd__o21a_2         2
+     sky130_fd_sc_hd__o21bai_2       1
+     sky130_fd_sc_hd__or2_2          2
+     sky130_fd_sc_hd__or3_2          1
+     sky130_fd_sc_hd__or4_2          7
+     sky130_fd_sc_hd__xnor2_2        1
+
+   Chip area for module '\vortex_top': 1418.860800
+

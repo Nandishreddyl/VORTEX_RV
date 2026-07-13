@@ -1,0 +1,496 @@
+
+===========================================================================
+report_checks -unconstrained
+===========================================================================
+======================= Typical Corner ===================================
+
+Startpoint: rst_n (input port clocked by clk)
+Endpoint: _148_ (recovery check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (propagated)
+                          2.00    2.00 ^ input external delay
+                  0.02    0.01    2.01 ^ rst_n (in)
+     1    0.00                           rst_n (net)
+                  0.02    0.00    2.01 ^ input1/A (sky130_fd_sc_hd__clkbuf_1)
+                  0.04    0.07    2.08 ^ input1/X (sky130_fd_sc_hd__clkbuf_1)
+     1    0.00                           net1 (net)
+                  0.04    0.00    2.08 ^ fanout35/A (sky130_fd_sc_hd__clkbuf_2)
+                  0.08    0.14    2.22 ^ fanout35/X (sky130_fd_sc_hd__clkbuf_2)
+     5    0.01                           net35 (net)
+                  0.08    0.00    2.22 ^ fanout32/A (sky130_fd_sc_hd__clkbuf_4)
+                  0.12    0.21    2.43 ^ fanout32/X (sky130_fd_sc_hd__clkbuf_4)
+    10    0.04                           net32 (net)
+                  0.12    0.00    2.43 ^ _148_/RESET_B (sky130_fd_sc_hd__dfrtp_1)
+                                  2.43   data arrival time
+
+                         10.00   10.00   clock clk (rise edge)
+                          0.00   10.00   clock source latency
+                  0.04    0.03   10.03 ^ clk (in)
+     1    0.01                           clk (net)
+                  0.04    0.00   10.03 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+                  0.05    0.13   10.15 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+     4    0.03                           clknet_0_clk (net)
+                  0.05    0.00   10.15 ^ clkbuf_2_2__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+                  0.03    0.11   10.27 ^ clkbuf_2_2__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+     6    0.01                           clknet_2_2__leaf_clk (net)
+                  0.03    0.00   10.27 ^ _148_/CLK (sky130_fd_sc_hd__dfrtp_1)
+                         -0.25   10.02   clock uncertainty
+                          0.00   10.02   clock reconvergence pessimism
+                          0.21   10.23   library recovery time
+                                 10.23   data required time
+-----------------------------------------------------------------------------
+                                 10.23   data required time
+                                 -2.43   data arrival time
+-----------------------------------------------------------------------------
+                                  7.80   slack (MET)
+
+
+Startpoint: _149_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: debug_pc[3] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock source latency
+                  0.04    0.03    0.03 ^ clk (in)
+     1    0.01                           clk (net)
+                  0.04    0.00    0.03 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+                  0.05    0.14    0.17 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+     4    0.03                           clknet_0_clk (net)
+                  0.05    0.00    0.17 ^ clkbuf_2_3__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+                  0.04    0.13    0.30 ^ clkbuf_2_3__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+     8    0.01                           clknet_2_3__leaf_clk (net)
+                  0.04    0.00    0.30 ^ _149_/CLK (sky130_fd_sc_hd__dfrtp_1)
+                  0.06    0.40    0.70 v _149_/Q (sky130_fd_sc_hd__dfrtp_1)
+     3    0.01                           net25 (net)
+                  0.06    0.00    0.70 v output25/A (sky130_fd_sc_hd__clkbuf_4)
+                  0.08    0.20    0.90 v output25/X (sky130_fd_sc_hd__clkbuf_4)
+     1    0.03                           debug_pc[3] (net)
+                  0.08    0.00    0.90 v debug_pc[3] (out)
+                                  0.90   data arrival time
+
+                         10.00   10.00   clock clk (rise edge)
+                          0.00   10.00   clock network delay (propagated)
+                         -0.25    9.75   clock uncertainty
+                          0.00    9.75   clock reconvergence pessimism
+                         -2.00    7.75   output external delay
+                                  7.75   data required time
+-----------------------------------------------------------------------------
+                                  7.75   data required time
+                                 -0.90   data arrival time
+-----------------------------------------------------------------------------
+                                  6.85   slack (MET)
+
+
+
+
+===========================================================================
+report_checks --slack_max -0.01
+============================================================================
+======================= Typical Corner ===================================
+
+No paths found.
+
+
+===========================================================================
+ report_check_types -max_slew -max_cap -max_fanout -violators
+============================================================================
+======================= Typical Corner ===================================
+
+
+
+===========================================================================
+report_parasitic_annotation -report_unannotated
+============================================================================
+Found 306 unannotated drivers.
+ clk
+ rst_n
+ _074_/Y
+ _075_/X
+ _076_/X
+ _077_/X
+ _078_/X
+ _079_/X
+ _080_/X
+ _081_/X
+ _082_/X
+ _083_/X
+ _084_/X
+ _085_/Y
+ _086_/X
+ _087_/Y
+ _088_/Y
+ _089_/X
+ _090_/X
+ _091_/X
+ _092_/Y
+ _093_/Y
+ _094_/X
+ _095_/X
+ _096_/X
+ _097_/Y
+ _098_/X
+ _099_/X
+ _100_/X
+ _101_/X
+ _102_/X
+ _103_/X
+ _104_/X
+ _105_/X
+ _106_/X
+ _107_/X
+ _108_/X
+ _109_/X
+ _110_/X
+ _111_/X
+ _112_/X
+ _113_/X
+ _114_/X
+ _115_/X
+ _116_/X
+ _117_/X
+ _118_/X
+ _119_/X
+ _120_/X
+ _121_/X
+ _122_/X
+ _123_/X
+ _124_/X
+ _125_/X
+ _126_/X
+ _127_/X
+ _128_/X
+ _129_/X
+ _130_/X
+ _131_/X
+ _132_/X
+ _133_/X
+ _134_/X
+ _135_/X
+ _136_/X
+ _137_/X
+ _138_/X
+ _139_/X
+ _140_/X
+ _141_/X
+ _142_/X
+ _143_/X
+ _144_/X
+ _145_/X
+ _146_/X
+ _147_/X
+ _148_/Q
+ _149_/Q
+ _150_/Q
+ _151_/Q
+ _152_/Q
+ _153_/Q
+ _154_/Q
+ _155_/Q
+ _156_/Q
+ _157_/Q
+ _158_/Q
+ _159_/Q
+ _160_/Q
+ _161_/Q
+ _162_/Q
+ _163_/Q
+ _164_/Q
+ _165_/Q
+ _166_/Q
+ _167_/Q
+ _168_/Q
+ _169_/Q
+ _170_/Q
+ _171_/Q
+ _172_/Q
+ _173_/Q
+ _174_/Q
+ _175_/Q
+ _176_/Q
+ _177_/Q
+ clkbuf_0_clk/X
+ clkbuf_2_0__f_clk/X
+ clkbuf_2_1__f_clk/X
+ clkbuf_2_2__f_clk/X
+ clkbuf_2_3__f_clk/X
+ fanout32/X
+ fanout33/X
+ fanout34/X
+ fanout35/X
+ hold1/X
+ hold10/X
+ hold11/X
+ hold12/X
+ hold13/X
+ hold14/X
+ hold15/X
+ hold16/X
+ hold17/X
+ hold18/X
+ hold19/X
+ hold2/X
+ hold20/X
+ hold21/X
+ hold22/X
+ hold23/X
+ hold24/X
+ hold25/X
+ hold26/X
+ hold27/X
+ hold28/X
+ hold3/X
+ hold4/X
+ hold5/X
+ hold6/X
+ hold7/X
+ hold8/X
+ hold9/X
+ input1/X
+ output10/X
+ output11/X
+ output12/X
+ output13/X
+ output14/X
+ output15/X
+ output16/X
+ output17/X
+ output18/X
+ output19/X
+ output2/X
+ output20/X
+ output21/X
+ output22/X
+ output23/X
+ output24/X
+ output25/X
+ output26/X
+ output27/X
+ output28/X
+ output29/X
+ output3/X
+ output30/X
+ output31/X
+ output4/X
+ output5/X
+ output6/X
+ output7/X
+ output8/X
+ output9/X
+ vortex_top_100/HI
+ vortex_top_100/LO
+ vortex_top_101/HI
+ vortex_top_101/LO
+ vortex_top_36/HI
+ vortex_top_36/LO
+ vortex_top_37/HI
+ vortex_top_37/LO
+ vortex_top_38/HI
+ vortex_top_38/LO
+ vortex_top_39/HI
+ vortex_top_39/LO
+ vortex_top_40/HI
+ vortex_top_40/LO
+ vortex_top_41/HI
+ vortex_top_41/LO
+ vortex_top_42/HI
+ vortex_top_42/LO
+ vortex_top_43/HI
+ vortex_top_43/LO
+ vortex_top_44/HI
+ vortex_top_44/LO
+ vortex_top_45/HI
+ vortex_top_45/LO
+ vortex_top_46/HI
+ vortex_top_46/LO
+ vortex_top_47/HI
+ vortex_top_47/LO
+ vortex_top_48/HI
+ vortex_top_48/LO
+ vortex_top_49/HI
+ vortex_top_49/LO
+ vortex_top_50/HI
+ vortex_top_50/LO
+ vortex_top_51/HI
+ vortex_top_51/LO
+ vortex_top_52/HI
+ vortex_top_52/LO
+ vortex_top_53/HI
+ vortex_top_53/LO
+ vortex_top_54/HI
+ vortex_top_54/LO
+ vortex_top_55/HI
+ vortex_top_55/LO
+ vortex_top_56/HI
+ vortex_top_56/LO
+ vortex_top_57/HI
+ vortex_top_57/LO
+ vortex_top_58/HI
+ vortex_top_58/LO
+ vortex_top_59/HI
+ vortex_top_59/LO
+ vortex_top_60/HI
+ vortex_top_60/LO
+ vortex_top_61/HI
+ vortex_top_61/LO
+ vortex_top_62/HI
+ vortex_top_62/LO
+ vortex_top_63/HI
+ vortex_top_63/LO
+ vortex_top_64/HI
+ vortex_top_64/LO
+ vortex_top_65/HI
+ vortex_top_65/LO
+ vortex_top_66/HI
+ vortex_top_66/LO
+ vortex_top_67/HI
+ vortex_top_67/LO
+ vortex_top_68/HI
+ vortex_top_68/LO
+ vortex_top_69/HI
+ vortex_top_69/LO
+ vortex_top_70/HI
+ vortex_top_70/LO
+ vortex_top_71/HI
+ vortex_top_71/LO
+ vortex_top_72/HI
+ vortex_top_72/LO
+ vortex_top_73/HI
+ vortex_top_73/LO
+ vortex_top_74/HI
+ vortex_top_74/LO
+ vortex_top_75/HI
+ vortex_top_75/LO
+ vortex_top_76/HI
+ vortex_top_76/LO
+ vortex_top_77/HI
+ vortex_top_77/LO
+ vortex_top_78/HI
+ vortex_top_78/LO
+ vortex_top_79/HI
+ vortex_top_79/LO
+ vortex_top_80/HI
+ vortex_top_80/LO
+ vortex_top_81/HI
+ vortex_top_81/LO
+ vortex_top_82/HI
+ vortex_top_82/LO
+ vortex_top_83/HI
+ vortex_top_83/LO
+ vortex_top_84/HI
+ vortex_top_84/LO
+ vortex_top_85/HI
+ vortex_top_85/LO
+ vortex_top_86/HI
+ vortex_top_86/LO
+ vortex_top_87/HI
+ vortex_top_87/LO
+ vortex_top_88/HI
+ vortex_top_88/LO
+ vortex_top_89/HI
+ vortex_top_89/LO
+ vortex_top_90/HI
+ vortex_top_90/LO
+ vortex_top_91/HI
+ vortex_top_91/LO
+ vortex_top_92/HI
+ vortex_top_92/LO
+ vortex_top_93/HI
+ vortex_top_93/LO
+ vortex_top_94/HI
+ vortex_top_94/LO
+ vortex_top_95/HI
+ vortex_top_95/LO
+ vortex_top_96/HI
+ vortex_top_96/LO
+ vortex_top_97/HI
+ vortex_top_97/LO
+ vortex_top_98/HI
+ vortex_top_98/LO
+ vortex_top_99/HI
+ vortex_top_99/LO
+Found 0 partially unannotated drivers.
+
+===========================================================================
+max slew violation count 0
+max fanout violation count 0
+max cap violation count 0
+============================================================================
+
+===========================================================================
+check_setup -verbose -unconstrained_endpoints -multiple_clock -no_clock -no_input_delay -loops -generated_clocks
+===========================================================================
+Warning: There are 66 unconstrained endpoints.
+  debug_alu_result[0]
+  debug_alu_result[10]
+  debug_alu_result[11]
+  debug_alu_result[12]
+  debug_alu_result[13]
+  debug_alu_result[14]
+  debug_alu_result[15]
+  debug_alu_result[16]
+  debug_alu_result[17]
+  debug_alu_result[18]
+  debug_alu_result[19]
+  debug_alu_result[1]
+  debug_alu_result[20]
+  debug_alu_result[21]
+  debug_alu_result[22]
+  debug_alu_result[23]
+  debug_alu_result[24]
+  debug_alu_result[25]
+  debug_alu_result[26]
+  debug_alu_result[27]
+  debug_alu_result[28]
+  debug_alu_result[29]
+  debug_alu_result[2]
+  debug_alu_result[30]
+  debug_alu_result[31]
+  debug_alu_result[3]
+  debug_alu_result[4]
+  debug_alu_result[5]
+  debug_alu_result[6]
+  debug_alu_result[7]
+  debug_alu_result[8]
+  debug_alu_result[9]
+  debug_instruction[0]
+  debug_instruction[10]
+  debug_instruction[11]
+  debug_instruction[12]
+  debug_instruction[13]
+  debug_instruction[14]
+  debug_instruction[15]
+  debug_instruction[16]
+  debug_instruction[17]
+  debug_instruction[18]
+  debug_instruction[19]
+  debug_instruction[1]
+  debug_instruction[20]
+  debug_instruction[21]
+  debug_instruction[22]
+  debug_instruction[23]
+  debug_instruction[24]
+  debug_instruction[25]
+  debug_instruction[26]
+  debug_instruction[27]
+  debug_instruction[28]
+  debug_instruction[29]
+  debug_instruction[2]
+  debug_instruction[30]
+  debug_instruction[31]
+  debug_instruction[3]
+  debug_instruction[4]
+  debug_instruction[5]
+  debug_instruction[6]
+  debug_instruction[7]
+  debug_instruction[8]
+  debug_instruction[9]
+  debug_pc[0]
+  debug_pc[1]

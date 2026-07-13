@@ -1,0 +1,33 @@
+# Simulation
+*.vcd
+*.out
+a.out
+
+# Temporary
+*.log
+*.tmp
+
+# VS Code
+.vscode/
+
+# Python
+__pycache__/
+
+# OpenLane runs (very large)
+runs/
+
+# Vivado
+*.jou
+*.str
+*.cache
+*.hw
+*.ip_user_files
+*.runs
+*.sim
+
+# GTKWave
+*.gtkw
+
+# OS
+.DS_Store
+Thumbs.db
